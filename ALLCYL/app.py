@@ -11,12 +11,22 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png');
+        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/Rod_Eye.png');
         background-repeat: no-repeat;
-        background-position: center center;
-        background-size: 300px;  /* adjust size */
-        opacity: 1;            /* faint watermark effect */
+        background-position: center;
+        background-size: 300px;
         background-attachment: fixed;
+    }
+    .stApp::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        opacity: 0.07;
+        z-index: -1;
     }
     </style>
     """,
