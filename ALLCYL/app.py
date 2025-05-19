@@ -158,6 +158,3 @@ predicted_cost = np.expm1(predicted_log_cost)  # Inverse of log1p
 
 st.markdown(f"### Predicted Cost: **$ {predicted_cost:.2f}**")
 
-# Debug output
-st.markdown(f"**Model Features Used:** `{model_feature_list}`")
-st.markdown(f"**Input Values Sent to Model:** `{final_input}`")
