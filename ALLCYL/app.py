@@ -10,13 +10,18 @@ st.set_page_config(
 )
 st.markdown(
     """
-    <div style="display: flex; justify-content: center; margin-top: 20px;">
-        <img src="https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png" width="300" />
-    </div>
+    <style>
+    .stApp {
+        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 300px;  /* change to desired size */
+        opacity: 1;
+    }
+    </style>
     """,
     unsafe_allow_html=True
 )
-
 
 # Model-specific required features
 model_features = {
