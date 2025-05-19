@@ -142,4 +142,5 @@ model_input = [remapped_inputs.get(f, 0) for f in model.feature_names_]
 # Predict and show result
 predicted_cost = np.expm1(model.predict([model_input])[0])
 st.markdown(f"### Predicted Cost: **$ {predicted_cost:.2f}**")
-print(model.feature_names_)
+hi=model.feature_names_
+st.markdown(f"hi: {hi}")
