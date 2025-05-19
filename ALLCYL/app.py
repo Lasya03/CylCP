@@ -8,29 +8,23 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded",
 )
+import streamlit as st
+
 st.markdown(
     """
     <style>
     .stApp {
-        position: relative;
-        z-index: 0;
-    }
-    .stApp::before {
-        content: "";
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png');
+        background-image: url('https://raw.githubusercontent.com/your-username/your-repo/main/background.jpg');
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 300px;  /* adjust size */
-        z-index: -1;
-        pointer-events: none;
+        opacity: 0.1;            /* faint watermark effect */
+        background-attachment: fixed;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 # Model-specific required features
 model_features = {
     'HD': ['Bore','Stroke','RPC','Rod','R bearing','B bearing','Block','Val A'],
