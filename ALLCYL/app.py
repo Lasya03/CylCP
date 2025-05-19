@@ -12,17 +12,17 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png');
+        background-image: url('https://raw.githubusercontent.com/your-username/your-repo/main/background.jpg');
         background-repeat: no-repeat;
-        background-position: center;
-        background-size: 300px;  /* change to desired size */
-        opacity: 1;
+        background-position: center center;
+        background-size: 300px;  /* adjust size */
+        opacity: 0.1;            /* faint watermark effect */
+        background-attachment: fixed;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 # Model-specific required features
 model_features = {
     'HD': ['Bore','Stroke','RPC','Rod','R bearing','B bearing','Block','Val A'],
