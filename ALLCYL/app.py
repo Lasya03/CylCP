@@ -14,6 +14,7 @@ st.markdown(
     .stApp {{
         background-image: url("https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png");
         background-size: cover;
+        background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }}
