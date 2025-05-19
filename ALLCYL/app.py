@@ -16,7 +16,7 @@ st.markdown(
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 300px;  /* adjust size */
-        opacity: 1;            /* faint watermark effect */
+        opacity: 0.7;            /* faint watermark effect */
         background-attachment: fixed;
     }
     </style>
