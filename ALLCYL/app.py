@@ -12,7 +12,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-image: url('https://raw.githubusercontent.com/your-username/your-repo/main/background.jpg');
+        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png');
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 300px;  /* adjust size */
