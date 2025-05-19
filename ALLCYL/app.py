@@ -12,18 +12,24 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-image: url('https://raw.githubusercontent.com/your-username/your-repo/main/background.jpg');
+        position: relative;
+        z-index: 0;
+    }
+    .stApp::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png');
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 300px;  /* adjust size */
-        opacity: 1;            /* faint watermark effect */
-        background-attachment: fixed;
+        z-index: -1;
+        pointer-events: none;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 # Model-specific required features
 model_features = {
