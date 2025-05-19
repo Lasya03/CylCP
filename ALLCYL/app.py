@@ -8,7 +8,6 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded",
 )
-import streamlit as st
 
 st.markdown(
     """
@@ -17,7 +16,7 @@ st.markdown(
         background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png');
         background-repeat: no-repeat;
         background-position: center center;
-        background-size: 400px;  /* adjust size */
+        background-size: 300px;  /* adjust size */
         opacity: 1;            /* faint watermark effect */
         background-attachment: fixed;
     }
