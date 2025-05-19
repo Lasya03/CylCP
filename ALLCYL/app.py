@@ -63,8 +63,9 @@ with col1:
 with col2:
     r_bearing = st.radio("R bearing", ["Yes", "No"])
     b_bearing = st.radio("B bearing", ["Yes", "No"])
-    block = st.radio("Block", ["Yes", "No"])
     val_a = st.radio("Val A", ["Yes", "No"])
+    block = st.radio("Block", ["Yes", "No"])
+
     
 
 # Add inputs to dictionary
