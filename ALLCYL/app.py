@@ -137,10 +137,25 @@ remapped_inputs = {}
 for k, v in inputs.items():
     remapped_inputs[input_name_mapping.get(k, k)] = v
 
-# Ensure all features expected by model are present
-model_input = [remapped_inputs.get(f, 0) for f in model.feature_names_]
+# Make sure all required features are present in the right order
+model_feature_list = model.feature_names_
+
+# Automatically add missing features with 0 if not already created
+final_input = []
+for feature in model_feature_list:
+    if feature in remapped_inputs:
+        final_input.append(remapped_inputs[feature])
+    else:
+        st.warning(f"Feature missing from inputs: {feature} — defaulting to 0")
+        final_input.append(0)
+
 # Predict and show result
-predicted_cost = np.expm1(model.predict([model_input])[0])
+predicted_log_cost = model.predict([final_input])[0]
+predicted_cost = np.expm1(predicted_log_cost)  # in case target was log-transformed
+
 st.markdown(f"### Predicted Cost: **$ {predicted_cost:.2f}**")
-hi=model.feature_names_
-st.markdown(f"hi: {hi}")
+
+# Debug info
+st.markdown(f"**Model Features Used:** {model_feature_list}")
+st.markdown(f"**Input Values Sent to Model:** {final_input}")
+
