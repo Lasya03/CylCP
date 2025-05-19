@@ -61,10 +61,10 @@ with col1:
     rpc = synced_input("RPC", 0, 100, 20)
     rod = synced_input("Rod", 0, bore, min(30, bore))
 with col2:
-    r_bearing = st.radio("R bearing", ["No", "Yes"])
-    b_bearing = st.radio("B bearing", ["No", "Yes"])
-    block = st.radio("Block", ["No", "Yes"])
-    val_a = st.radio("Val A", ["No", "Yes"])
+    r_bearing = st.radio("R bearing", ["Yes", "No"])
+    b_bearing = st.radio("B bearing", ["Yes", "No"])
+    block = st.radio("Block", ["Yes", "No"])
+    val_a = st.radio("Val A", ["Yes", "No"])
     
 
 # Add inputs to dictionary
