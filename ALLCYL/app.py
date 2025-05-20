@@ -64,11 +64,10 @@ st.markdown(
 def synced_input(label, min_val, max_val, default):
     col_slider, col_input = st.columns([2, 1])
     with col_slider:
-        slider_val = st.slider(label, min_value=min_val, max_value=max_val, value=default, key=label+"slider")
+        slider_val = st.slider(label,min_value=float(min_val),max_value=float(max_val),value=float(default),step=0.001,key=label + "slider")
     with col_input:
-        input_val = st.number_input(f"{label} value", min_value=min_val, max_value=max_val, value=slider_val, key=label+"input")
+        input_val = st.number_input(f"{label} value",min_value=float(min_val),max_value=float(max_val),value=slider_val,step=0.001,format="%.3f",key=label + "input")
     return input_val if input_val != slider_val else slider_val
-
 col1, col2 = st.columns(2)
 inputs = {}
 with st.expander("🔢 Numerical Inputs", expanded=True):
