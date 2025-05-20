@@ -51,27 +51,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-import streamlit as st
-
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: white;
-        background-image: 
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing1.png'),
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing2.png');
-        background-repeat: repeat;
-        background-size: 250px 250px; /* Increase to add spacing between images */
-        background-position: 0px 0px, 125px 125px; /* Offset second image diagonally */
-        filter: grayscale(100%) opacity(0.07); /* Light sketch effect */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-
 model = load_model(model_key)
 if model is None:
     st.stop()
