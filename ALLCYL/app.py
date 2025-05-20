@@ -33,22 +33,7 @@ def load_model(model_key):
             return pickle.load(f)
     else:
         st.error(f"Model file {filename} not found!")
-        return None
-st.markdown(
-    """
-    <style>
-    /* Target sidebar container */
-    .css-1d391kg {  /* or try .sidebar-content if this class changes */
-        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png');
-        background-repeat: repeat;
-        background-size: 300px 300px;
-        filter: grayscale(100%) opacity(0.07);
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-       
+        return None   
 st.sidebar.title("Model Selection")
 model_key = st.sidebar.selectbox("Select Model Type", list(model_features.keys()))
 
@@ -73,11 +58,11 @@ inputs = {}
 with st.expander("🔢 Numerical Inputs", expanded=True):
     col1a, col1b = st.columns(2)
     with col1a:
-        bore = synced_input("Bore", 0.0, 25.0, 5.0, format="%.3f")
-        stroke = synced_input("Stroke", 0.0, 400.0, 50.0, format="%.3f")
+        bore = synced_input("Bore", 0.0, 25.0, 5.0")
+        stroke = synced_input("Stroke", 0.0, 400.0, 50.0")
     with col1b:
-        rpc = synced_input("RPC", 0.0, 400.0, 20.0, format="%.3f")
-        rod = synced_input("Rod", 0.0, bore, min(5.0, bore), format="%.3f")
+        rpc = synced_input("RPC", 0.0, 400.0, 20.0")
+        rod = synced_input("Rod", 0.0, bore, min(5.0, bore)")
 with st.expander("⚙️ Categorical Options", expanded=True):
     col2a, col2b = st.columns(2)
     with col2a:
