@@ -16,7 +16,7 @@ st.markdown(
         background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png'),
                           url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Cover_Type.png');
         background-repeat: repeat;
-        background-size: 25px 25px; /* Make them small */
+        background-size: 50px 50px; /* Make them small */
         background-position: 0 0, 25px 25px; /* stagger the images */
         background-attachment: fixed;
         opacity: 1; /* Do not make full app transparent */
