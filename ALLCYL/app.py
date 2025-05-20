@@ -36,36 +36,42 @@ model_key = st.sidebar.selectbox("Select Model Type", list(model_features.keys()
 st.markdown(
     """
     <style>
-    /* 1) Make the sidebar itself a positioning context, with a solid base color */
+    /* Make the sidebar have an image background */
     section[data-testid="stSidebar"] {
         position: relative;
-        background-color: #ffffff;  /* solid white (or any other color) */
-        overflow: hidden;           /* ensure pseudo-element is clipped */
+        background-color: transparent;  /* No solid background */
+        overflow: hidden;
     }
 
-    /* 2) Insert the tiled image into a ::before that sits at z-index:0 */
     section[data-testid="stSidebar"]::before {
         content: "";
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
         background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img3.png');
-        background-repeat: space;          /* tile with equal gaps */
-        background-size: 100px 100px;      /* adjust tile size + gap */
-        /* Only this layer is semi-transparent: */
-        pointer-events: none;               /* clicks still go to real widgets */
+        background-repeat: space;
+        background-size: 100px 100px;
+        pointer-events: none;
         z-index: 0;
+        opacity: 0.15;  /* Adjust this for brightness/contrast */
     }
 
-    /* 3) Force the actual sidebar content div to sit above (z-index:1), 
-          with its own opaque background so text is never over the image */
+    /* Sidebar content sits above the background image */
     section[data-testid="stSidebar"] > div {
         position: relative;
         z-index: 1;
+        background-color: transparent !important;  /* Removes the solid block */
+    }
+
+    /* Optional: Make sidebar text easier to read */
+    section[data-testid="stSidebar"] * {
+        color: black !important;           /* You can try white if image is dark */
+        text-shadow: 1px 1px 2px white;    /* Optional: adds readability */
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 model = load_model(model_key)
 if model is None:
     st.stop()
