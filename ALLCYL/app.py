@@ -17,17 +17,6 @@ st.markdown(
         background-size: 300px;
         background-attachment: fixed;
     }
-    .stApp::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: inherit;
-        opacity: 0.07;
-        z-index: -1;
-    }
     </style>
     """,
     unsafe_allow_html=True
