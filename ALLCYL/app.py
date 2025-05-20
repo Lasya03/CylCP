@@ -2,6 +2,15 @@ import streamlit as st
 import pickle
 import os
 import numpy as np
+st.markdown(
+    """
+    <div style='text-align:center; margin-top: -60px; margin-bottom: -30px; z-index: 9999;'>
+        <img src='https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/loading.gif' style='width:150px;' />
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 st.set_page_config(
     page_title="Cylinder Cost Prediction",
     layout="centered",
