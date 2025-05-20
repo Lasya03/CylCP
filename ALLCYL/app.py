@@ -37,19 +37,23 @@ st.markdown(
     """
     <style>
     section[data-testid="stSidebar"] {
-        background-image: 
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png'),
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img2.png');
-        background-repeat: repeat, repeat;
-        background-size: 80px 80px, 80px 80px;  /* Smaller size */
-        background-position: 20px 20px, 120px 120px;  /* Non-overlapping positions */
-        background-color: #f8f9fa; /* Optional: Add a light background to contrast images */
+        /* Use only one background image */
+        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img3.png');
+        /* Distribute as many copies as will fit, leaving equal gaps */
+        background-repeat: space;
+        /* Set each tile’s total box—this controls image size + gap */
+        background-size: 100px 100px;
+        /* Optional: center the pattern (you can tweak offsets if needed) */
+        background-position: 0 0;
+        /* A light fallback color behind the tiles */
+        background-color: #f8f9fa;
         filter: grayscale(100%) opacity(0.9);
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 model = load_model(model_key)
 if model is None:
