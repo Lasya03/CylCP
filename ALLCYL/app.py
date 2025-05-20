@@ -31,15 +31,13 @@ def load_model(model_key):
     else:
         st.error(f"Model file {filename} not found!")
         return None   
-st.sidebar.title("Model Selection")
-model_key = st.sidebar.selectbox("Select Model Type", list(model_features.keys()))
 st.markdown(
     """
     <style>
-    /* Make the sidebar have an image background */
+    /* Sidebar container with background image */
     section[data-testid="stSidebar"] {
         position: relative;
-        background-color: transparent;  /* No solid background */
+        background-color: transparent;
         overflow: hidden;
     }
 
@@ -52,25 +50,36 @@ st.markdown(
         background-size: 100px 100px;
         pointer-events: none;
         z-index: 0;
-        opacity: 0.8;  /* Adjust this for brightness/contrast */
+        opacity: 0.2;  /* adjust visibility of image */
     }
 
-    /* Sidebar content sits above the background image */
+    /* Sidebar content over background image */
     section[data-testid="stSidebar"] > div {
         position: relative;
         z-index: 1;
-        background-color: transparent !important;  /* Removes the solid block */
+        background-color: transparent !important;
     }
 
-    /* Optional: Make sidebar text easier to read */
-    section[data-testid="stSidebar"] * {
-        color: black !important;           /* You can try white if image is dark */
-        text-shadow: 1px 1px 2px white;    /* Optional: adds readability */
+    /* Make sidebar labels dark and readable */
+    section[data-testid="stSidebar"] label {
+        color: #111 !important;
+        font-weight: bold;
+        text-shadow: 0px 0px 2px white;  /* Optional: makes dark text stand out */
+    }
+
+    /* Style the dropdown box with dark border */
+    section[data-testid="stSidebar"] .stSelectbox > div {
+        border: 2px solid #333 !important;  /* Dark outline */
+        border-radius: 5px;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
+# Sidebar widgets
+st.sidebar.title("Model Selection")
+model_key = st.sidebar.selectbox("Select Model Type", list(model_features.keys()))
 
 model = load_model(model_key)
 if model is None:
