@@ -35,8 +35,35 @@ def load_model(model_key):
         st.error(f"Model file {filename} not found!")
         return None
 
+import streamlit as st
+import base64
+
+# Encode the image to base64
+def get_base64_image(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
+
+# Get base64 string of img1.png
+img_base64 = get_base64_image("img1.png")
+
+# Inject CSS to style the sidebar
+st.markdown(
+    f"""
+    <style>
+    [data-testid="stSidebar"] {{
+        background-image: url("data:image/png;base64,{img_base64}");
+        background-repeat: repeat;
+        background-size: contain;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Sidebar content
 st.sidebar.title("Model Selection")
 model_key = st.sidebar.selectbox("Select Model Type", list(model_features.keys()))
+
 
 model = load_model(model_key)
 if model is None:
