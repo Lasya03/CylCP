@@ -14,7 +14,7 @@ st.markdown(
     <style>
     .stApp {
         background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png'),
-                          url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing2.png');
+                          url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Cover_Type.png');
         background-repeat: repeat;
         background-size: 100px 100px; /* Make them small */
         background-position: 0 0, 50px 50px; /* stagger the images */
