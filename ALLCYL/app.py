@@ -62,7 +62,6 @@ st.markdown(
     section[data-testid="stSidebar"] > div {
         position: relative;
         z-index: 1;
-        background-color: rgba(255,255,255,1);  /* fully opaque white */
     }
     </style>
     """,
