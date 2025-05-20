@@ -64,27 +64,22 @@ st.markdown(
     "<h1 style='white-space: nowrap;'>Cylinder Cost Prediction - Columbus</h1>",
     unsafe_allow_html=True
 )
+import streamlit as st
+
+# --- Inject Custom CSS for Input Boxes ---
 st.markdown("""
     <style>
-    /* Expander container */
-    .streamlit-expanderHeader {
-        font-size: 18px;
-        font-weight: bold;
-        background-color: #f0f0f5;
-        color: #333;
-        padding: 10px;
-        border: 2px solid #444;
-        border-radius: 8px;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    /* Number input and slider input dark borders */
+    .stNumberInput input, .stSlider {
+        border: 2px solid #333 !important;
+        border-radius: 6px !important;
+        padding: 5px !important;
+        background-color: #fff !important;
     }
 
-    /* Expanded content area */
-    .st-expander {
-        border: 2px solid #444 !important;
-        border-radius: 8px !important;
-        background-color: #fafafa;
-        margin-bottom: 15px;
-        box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
+    /* Adjust slider handle and track (optional styling) */
+    .stSlider > div[data-baseweb="slider"] > div {
+        background-color: #444 !important;
     }
     </style>
 """, unsafe_allow_html=True)
