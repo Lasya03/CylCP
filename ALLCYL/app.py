@@ -7,24 +7,30 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded",
 )
-import streamlit as st
 
 st.markdown(
     """
     <style>
-    .stApp {
+    .stApp::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png'),
                           url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Cover_Type.png');
         background-repeat: repeat;
-        background-size: 50px 50px; /* Make them small */
-        background-position: 0 0, 25px 25px; /* stagger the images */
-        background-attachment: fixed;
-        opacity: 1; /* Do not make full app transparent */
+        background-size: 100px 100px;
+        background-position: 0 0, 50px 50px;
+        opacity: 0.08; /* Light background */
+        z-index: -1;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 # Model-specific required features
 model_features = {
