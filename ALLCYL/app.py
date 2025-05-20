@@ -41,7 +41,7 @@ st.markdown(
     section[data-testid="stSidebar"] {
         background-image: 
             url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png'),
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png');
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img2.png');
         background-repeat: repeat;
         background-size: 125px 125px; /* Increase to add spacing between images */
         background-position: 25px 25px, 175px 175px; /* Offset second image diagonally */
