@@ -48,7 +48,7 @@ st.markdown(
         content: "";
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png');
+        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img3.png');
         background-repeat: space;          /* tile with equal gaps */
         background-size: 100px 100px;      /* adjust tile size + gap */
         /* Only this layer is semi-transparent: */
