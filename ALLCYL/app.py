@@ -15,8 +15,8 @@ st.markdown(
     .stApp {
         background-color: white;
         background-image: 
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing1.png'),
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing2.png');
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/img1.png'),
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/img2.png');
         background-repeat: repeat;
         background-position: 0 0, 75px 75px; /* Offset the second image */
         background-size: 150px 150px; /* Adjust spacing */
