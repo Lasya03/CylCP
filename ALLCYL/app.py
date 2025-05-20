@@ -13,7 +13,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing1.png'),
+        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/Rod_Eye.png'),
                           url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing2.png');
         background-repeat: repeat;
         background-size: 100px 100px; /* Make them small */
