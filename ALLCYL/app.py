@@ -7,6 +7,47 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded",
 )
+import streamlit as st
+
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: white;
+        background-image: 
+            repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 150px,
+                white 150px,
+                white 300px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 150px,
+                white 150px,
+                white 300px
+            ),
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing1.png'),
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing2.png');
+        background-repeat: repeat;
+        background-position: 
+            0px 0px,
+            0px 0px,
+            0px 0px,
+            150px 150px;
+        background-size: 
+            300px 300px,
+            300px 300px,
+            150px 150px,
+            150px 150px;
+        background-attachment: fixed;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Model-specific required features
 model_features = {
