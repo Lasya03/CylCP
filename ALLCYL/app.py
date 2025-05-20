@@ -15,33 +15,40 @@ st.markdown(
     .stApp {
         background-color: white;
         background-image: 
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/img1.png'),
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/img2.png');
+            repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 150px,
+                white 150px,
+                white 300px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 150px,
+                white 150px,
+                white 300px
+            ),
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png'),
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img2.png');
         background-repeat: repeat;
-        background-position: 0 0, 5px 5px; /* Offset the second image */
-        background-size: 50px 50px; /* Adjust spacing */
-        opacity: 1;
-    }
-
-    /* Apply opacity only to images using overlay */
-    .stApp::before {
-        content: "";
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background-image: 
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing1.png'),
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing2.png');
-        background-repeat: repeat;
-        background-position: 0 0, 75px 75px;
-        background-size: 150px 150px;
-        opacity: 0.07; /* Make them faint */
-        z-index: -1;
+        background-position: 
+            0px 0px,
+            0px 0px,
+            0px 0px,
+            150px 150px;
+        background-size: 
+            300px 300px,
+            300px 300px,
+            300px 300px,
+            300px 300px;
+        background-attachment: fixed;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 # Model-specific required features
 model_features = {
