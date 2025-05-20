@@ -52,7 +52,6 @@ st.markdown(
         background-repeat: space;          /* tile with equal gaps */
         background-size: 100px 100px;      /* adjust tile size + gap */
         /* Only this layer is semi-transparent: */
-        opacity: 0.2;
         pointer-events: none;               /* clicks still go to real widgets */
         z-index: 0;
     }
