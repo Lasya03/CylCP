@@ -74,12 +74,11 @@ inputs = {}
 with st.expander("🔢 Numerical Inputs", expanded=True):
     col1a, col1b = st.columns(2)
     with col1a:
-        bore = synced_input("Bore", 0, 300, 100)
-        stroke = synced_input("Stroke", 0, 300, 50)
+        bore = synced_input("Bore", 0.0, 25.0, 5.0, format="%.3f")
+        stroke = synced_input("Stroke", 0.0, 400.0, 50.0, format="%.3f")
     with col1b:
-        rpc = synced_input("RPC", 0, 100, 20)
-        rod = synced_input("Rod", 0, bore, min(30, bore))
-
+        rpc = synced_input("RPC", 0.0, 400.0, 20.0, format="%.3f")
+        rod = synced_input("Rod", 0.0, bore, min(5.0, bore), format="%.3f")
 with st.expander("⚙️ Categorical Options", expanded=True):
     col2a, col2b = st.columns(2)
     with col2a:
