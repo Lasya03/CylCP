@@ -3,7 +3,7 @@ import pickle
 import os
 import numpy as np
 st.set_page_config(
-    page_title="Cylinder Cost Prediction",
+    page_title="Cylinder Cost Prediction-Columbus",
     layout="centered",
     initial_sidebar_state="expanded",
 )
@@ -40,7 +40,19 @@ def load_model(model_key):
             return pickle.load(f)
     else:
         st.error(f"Model file {filename} not found!")
-        return None   
+        return None
+st.markdown(
+    """
+    <style>
+    /* Target selectbox inside the sidebar */
+    section[data-testid="stSidebar"] .stSelectbox > div {
+        border: 2px solid black !important;  /* Dark outline */
+        border-radius: 5px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # Sidebar widgets
 st.sidebar.title("Model Selection")
 model_key = st.sidebar.selectbox("Select Model Type", list(model_features.keys()))
@@ -52,6 +64,31 @@ st.markdown(
     "<h1 style='white-space: nowrap;'>Cylinder Cost Prediction - Columbus</h1>",
     unsafe_allow_html=True
 )
+st.markdown("""
+    <style>
+    /* Expander container */
+    .streamlit-expanderHeader {
+        font-size: 18px;
+        font-weight: bold;
+        background-color: #f0f0f5;
+        color: #333;
+        padding: 10px;
+        border: 2px solid #444;
+        border-radius: 8px;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Expanded content area */
+    .st-expander {
+        border: 2px solid #444 !important;
+        border-radius: 8px !important;
+        background-color: #fafafa;
+        margin-bottom: 15px;
+        box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 def synced_input(label, min_val, max_val, default):
     col_slider, col_input = st.columns([2, 1])
     with col_slider:
