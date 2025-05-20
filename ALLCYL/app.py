@@ -72,34 +72,9 @@ model = load_model(model_key)
 if model is None:
     st.stop()
 st.markdown(
-    """
-    <div style="position: relative; display: inline-block;">
-      <!-- 1) Your GIF, absolutely positioned -->
-      <img 
-        src="https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/loading.gif" 
-        style="
-          position: absolute;
-          top: -10px;       /* move the GIF slightly above the baseline of the text */
-          left: 0;          /* adjust left/right to slide it over the heading */
-          width: 50px;      /* scale the GIF as you like */
-          height: auto;
-          z-index: 1;
-        "
-      />
-      <!-- 2) The heading, with a left‐margin so it doesn’t get fully hidden -->
-      <h1 style="
-            margin: 0 0 0 60px;  /* push text right so GIF doesn’t cover all of it */
-            white-space: nowrap;
-            position: relative;
-            z-index: 0;
-        ">
-        Cylinder Cost Prediction – Columbus
-      </h1>
-    </div>
-    """,
-    unsafe_allow_html=True,
+    "<h1 style='white-space: nowrap;'>Cylinder Cost Prediction - Columbus</h1>",
+    unsafe_allow_html=True
 )
-
 def synced_input(label, min_val, max_val, default):
     col_slider, col_input = st.columns([2, 1])
     with col_slider:
