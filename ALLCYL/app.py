@@ -34,7 +34,21 @@ def load_model(model_key):
     else:
         st.error(f"Model file {filename} not found!")
         return None
-        
+st.markdown(
+    """
+    <style>
+    /* Target sidebar container */
+    .css-1d391kg {  /* or try .sidebar-content if this class changes */
+        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png');
+        background-repeat: repeat;
+        background-size: 300px 300px;
+        filter: grayscale(100%) opacity(0.07);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+       
 st.sidebar.title("Model Selection")
 model_key = st.sidebar.selectbox("Select Model Type", list(model_features.keys()))
 
