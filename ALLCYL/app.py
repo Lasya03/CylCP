@@ -29,8 +29,8 @@ st.markdown(
                 white 150px,
                 white 300px
             ),
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing1.png'),
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing2.png');
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png'),
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img2.png');
         background-repeat: repeat;
         background-position: 
             0px 0px,
