@@ -40,7 +40,7 @@ st.markdown(
         background-image: 
             url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png'),
             url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img2.png');
-        background-repeat: no-repeat, no-repeat;
+        background-repeat: repeat, repeat;
         background-size: 80px 80px, 80px 80px;  /* Smaller size */
         background-position: 20px 20px, 120px 120px;  /* Non-overlapping positions */
         background-color: #f8f9fa; /* Optional: Add a light background to contrast images */
