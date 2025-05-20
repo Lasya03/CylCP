@@ -2,5 +2,6 @@
 [browser]
 gatherUsageStats = false  # optional
 base="light"
-backgroundColor="#e8e4e4"
-secondaryBackgroundColor="#b7bbc1"
+backgroundColor="#dde2e2"
+secondaryBackgroundColor="#97989e"
+
