@@ -42,7 +42,7 @@ st.markdown(
         /* Distribute as many copies as will fit, leaving equal gaps */
         background-repeat: space;
         /* Set each tile’s total box—this controls image size + gap */
-        background-size: 150px 150px;
+        background-size: 75px 75px;
         /* Optional: center the pattern (you can tweak offsets if needed) */
         background-position: 0 0;
         filter: grayscale(100%) opacity(0.9);
