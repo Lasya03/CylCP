@@ -19,7 +19,7 @@ st.markdown(
             url('https://raw.githubusercontent.com/Lasya03/CylCP/refs/heads/main/ALLCYL/img2.png');
         background-repeat: repeat;
         background-position: 0 0, 75px 75px; /* Offset the second image */
-        background-size: 150px 150px; /* Adjust spacing */
+        background-size: 50px 50px; /* Adjust spacing */
         opacity: 1;
     }
 
