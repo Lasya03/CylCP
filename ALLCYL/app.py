@@ -7,28 +7,20 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded",
 )
+import streamlit as st
+
 st.markdown(
     """
     <style>
     .stApp {
         background-color: white;
-        background-image:
-            repeating-linear-gradient(0deg, transparent, transparent 200px, white 200px, white 400px),
-            repeating-linear-gradient(90deg, transparent, transparent 200px, white 200px, white 400px),
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png'),
-            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img2.png');
-        background-position:
-            0 0,
-            0 0,
-            0 0,
-            200px 200px;
+        background-image: 
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing1.png'),
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing2.png');
         background-repeat: repeat;
-        background-size:
-            400px 400px,
-            400px 400px,
-            200px 200px,
-            200px 200px;
-        filter: grayscale(100%) opacity(0.05);
+        background-size: 250px 250px; /* Increase to add spacing between images */
+        background-position: 0px 0px, 125px 125px; /* Offset second image diagonally */
+        filter: grayscale(100%) opacity(0.07); /* Light sketch effect */
     }
     </style>
     """,
