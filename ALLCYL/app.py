@@ -7,6 +7,42 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded",
 )
+import streamlit as st
+
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: white;
+        background-image: 
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing1.png'),
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing2.png');
+        background-repeat: repeat;
+        background-position: 0 0, 75px 75px; /* Offset the second image */
+        background-size: 150px 150px; /* Adjust spacing */
+        opacity: 1;
+    }
+
+    /* Apply opacity only to images using overlay */
+    .stApp::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-image: 
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing1.png'),
+            url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/drawing2.png');
+        background-repeat: repeat;
+        background-position: 0 0, 75px 75px;
+        background-size: 150px 150px;
+        opacity: 0.07; /* Make them faint */
+        z-index: -1;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Model-specific required features
 model_features = {
     'HD': ['Bore','Stroke','RPC','Rod','R bearing','B bearing','Block','Val A'],
