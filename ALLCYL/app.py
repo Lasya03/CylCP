@@ -50,7 +50,7 @@ st.markdown(
         background-size: 100px 100px;
         pointer-events: none;
         z-index: 0;
-        opacity: 0.2;  /* adjust visibility of image */
+        opacity: 0.8;  /* adjust visibility of image */
     }
 
     /* Sidebar content over background image */
