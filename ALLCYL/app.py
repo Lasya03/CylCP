@@ -46,8 +46,8 @@ st.markdown(
     <style>
     /* Target selectbox inside the sidebar */
     section[data-testid="stSidebar"] .stSelectbox > div {
-        border: 1px solid black !important;  /* Dark outline */
-        border-radius: 2px;
+        border: 2px solid black !important;  /* Dark outline */
+        border-radius: 5px;
     }
     </style>
     """,
@@ -69,8 +69,8 @@ st.markdown("""
     /* Target only number_input text boxes */
     .stNumberInput input {
         border: 2px solid #222 !important;
-        border-radius: 6px !important;
-        padding: 6px !important;
+        border-radius: 3px !important;
+        padding: 3px !important;
         background-color: #fff !important;
         color: #000 !important;
     }
