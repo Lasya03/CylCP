@@ -1,7 +1,9 @@
 [theme]
+base = "light"
+backgroundColor = "#dde2e2"
+secondaryBackgroundColor = "#97989e"
+
 [browser]
-gatherUsageStats = false  # optional
-base="light"
-backgroundColor="#dde2e2"
-secondaryBackgroundColor="#97989e"
+gatherUsageStats = false
+
 
