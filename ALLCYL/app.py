@@ -41,52 +41,6 @@ def load_model(model_key):
     else:
         st.error(f"Model file {filename} not found!")
         return None   
-st.markdown(
-    """
-    <style>
-    /* Sidebar container with background image */
-    section[data-testid="stSidebar"] {
-        position: relative;
-        background-color: transparent;
-        overflow: hidden;
-    }
-
-    section[data-testid="stSidebar"]::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img3.png');
-        background-repeat: space;
-        background-size: 100px 100px;
-        pointer-events: none;
-        z-index: 0;
-        opacity: 0.75;  /* adjust visibility of image */
-    }
-
-    /* Sidebar content over background image */
-    section[data-testid="stSidebar"] > div {
-        position: relative;
-        z-index: 1;
-        background-color: transparent !important;
-    }
-
-    /* Make sidebar labels dark and readable */
-    section[data-testid="stSidebar"] label {
-        color: #111 !important;
-        font-weight: bold;
-        text-shadow: 0px 0px 2px white;  /* Optional: makes dark text stand out */
-    }
-
-    /* Style the dropdown box with dark border */
-    section[data-testid="stSidebar"] .stSelectbox > div {
-        border: 2px solid #333 !important;  /* Dark outline */
-        border-radius: 5px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Sidebar widgets
 st.sidebar.title("Model Selection")
 model_key = st.sidebar.selectbox("Select Model Type", list(model_features.keys()))
