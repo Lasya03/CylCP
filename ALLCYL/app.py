@@ -69,8 +69,8 @@ st.markdown("""
     /* Target only number_input text boxes */
     .stNumberInput input {
         border: 0.5px solid #222 !important;
-        border-radius: 6px !important;
-        padding: 6px !important;
+        border-radius: 8px !important;
+        padding: 8px !important;
         background-color: #fff !important;
         color: #000 !important;
     }
