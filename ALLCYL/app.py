@@ -33,24 +33,24 @@ def load_model(model_key):
         return None   
 st.sidebar.title("Model Selection")
 model_key = st.sidebar.selectbox("Select Model Type", list(model_features.keys()))
-# Inject CSS to style the sidebar background
 st.markdown(
     """
     <style>
-    /* Target sidebar */
     section[data-testid="stSidebar"] {
         background-image: 
             url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png'),
             url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img2.png');
-        background-repeat: repeat;
-        background-size: 125px 125px; /* Increase to add spacing between images */
-        background-position: 125px 125px, 175px 175px; /* Offset second image diagonally */
-        filter: grayscale(100%) opacity(1);
+        background-repeat: no-repeat, no-repeat;
+        background-size: 80px 80px, 80px 80px;  /* Smaller size */
+        background-position: 20px 20px, 120px 120px;  /* Non-overlapping positions */
+        background-color: #f8f9fa; /* Optional: Add a light background to contrast images */
+        filter: grayscale(100%) opacity(0.9);
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 model = load_model(model_key)
 if model is None:
     st.stop()
