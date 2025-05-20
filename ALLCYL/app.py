@@ -41,7 +41,7 @@ st.markdown(
     section[data-testid="stSidebar"] {
         background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png');
         background-repeat: repeat;
-        background-size: 100px 100px;
+        background-size: 125px 125px;
         filter: grayscale(100%) opacity(1);
     }
     </style>
