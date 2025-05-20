@@ -42,7 +42,7 @@ st.markdown(
         background-image: url('https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/img1.png');
         background-repeat: repeat;
         background-size: 300px 300px;
-        filter: grayscale(100%) opacity(0.1);
+        filter: grayscale(100%) opacity(1);
     }
     </style>
     """,
