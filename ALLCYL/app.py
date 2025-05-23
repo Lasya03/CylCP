@@ -95,7 +95,6 @@ st.markdown("""
     */
     </style>
 """, unsafe_allow_html=True)
-
 def synced_input(label, min_val, max_val, default):
     col_slider, col_input = st.columns([2, 1])
     with col_slider:
