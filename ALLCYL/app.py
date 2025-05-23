@@ -106,23 +106,39 @@ st.markdown("""
     */
     </style>
 """, unsafe_allow_html=True)
+# Format: {model: {feature: (min, max, default)}}
+input_config = {
+    'HD': {'Bore': (0.5, 6.5, 3.0), 'Stroke': (1.0, 130.0, 20.0), 'RPC': (1.0, 130.0, 20.0), 'Rod': (0.0, 4.0, 1.5)},
+    'HDE': {'Bore': (1.0, 6.5, 3.0), 'Stroke': (1.0, 75.0, 20.0), 'RPC': (5.0, 90.0, 20.0), 'Rod': (0.0, 4.0, 1.5)},
+    'HDI': {'Bore': (0.5, 5.0, 3.0), 'Stroke': (0.0, 65.0, 15.0), 'RPC': (0.0, 80.0, 20.0), 'Rod': (0.0, 4.0, 1.5)},
+    'LD': {'Bore': (0.5, 4.0, 2.0), 'Stroke': (0.0, 50.0, 13.0), 'RPC': (1.0, 65.0, 21.0), 'Rod': (0.0, 2.0, 1.0)},
+    'LDH': {'Bore': (1.0, 5.0, 2.5), 'Stroke': (0.0, 75.0, 15.0), 'RPC': (1.0, 85.0, 25.0), 'Rod': (0.0, 2.5, 1.0)},
+    'MD': {'Bore': (0.0, 6.5, 2.5), 'Stroke': (0.0, 100.0, 13.0), 'RPC': (1.0, 110.0, 21.0), 'Rod': (0.0, 2.5, 1.5)},
+    'NR': {'Bore': (0.0, 3.0, 2.0), 'Stroke': (2.5, 45.0, 11.0), 'RPC': (7.0, 50.0, 18.0), 'Rod': (0.0, 2.5, 1.0)},
+    'H': {'Bore': (0.0, 6.5, 3.0), 'Stroke': (0.0, 115.0, 16.0), 'RPC': (0.0, 130.0, 25.0), 'Rod': (0.0, 3.5, 1.5)},
+    'L': {'Bore': (0.5, 5.0, 2.5), 'Stroke': (0.0, 75.0, 15.0), 'RPC': (1.0, 85.0, 20.0), 'Rod': (0.0, 2.5, 1.0)},
+    'M': {'Bore': (0.0, 6.5, 2.5), 'Stroke': (0.5, 100.0, 15.0), 'RPC': (2.0, 110.0, 21.0), 'Rod': (0.0, 2.5, 1.5)},
+    'N': {'Bore': (0.0, 3.0, 2.0), 'Stroke': (2.5, 45.0, 11.0), 'RPC': (7.0, 50.0, 20.0), 'Rod': (0.0, 2.5, 1.0)}
+}
 def synced_input(label, min_val, max_val, default):
     col_slider, col_input = st.columns([2, 1])
     with col_slider:
-        slider_val = st.slider(label,min_value=float(min_val),max_value=float(max_val),value=float(default),step=0.001,key=label + "slider")
+        slider_val = st.slider(label, min_value=float(min_val), max_value=float(max_val), value=float(default), step=0.001, key=label + "slider")
     with col_input:
-        input_val = st.number_input(f"{label} value",min_value=float(min_val),max_value=float(max_val),value=slider_val,step=0.001,format="%.3f",key=label + "input")
+        input_val = st.number_input(f"{label} value", min_value=float(min_val), max_value=float(max_val), value=slider_val, step=0.001, format="%.3f", key=label + "input")
     return input_val if input_val != slider_val else slider_val
+
 col1, col2 = st.columns(2)
+inputs = {}
 inputs = {}
 with st.expander("🔢 Numerical Inputs", expanded=True):
     col1a, col1b = st.columns(2)
-    with col1a:
-        bore = synced_input("Bore", 0.0, 10.0, 2.0)
-        stroke = synced_input("Stroke", 0.0, 300.0, 50.0)
-    with col1b:
-        rpc = synced_input("RPC", 0.0, 300.0, 20.0)
-        rod = synced_input("Rod", 0.0, bore, min(5.0, bore))
+    for i, feature in enumerate(numerical_features):
+        if feature in required_features:
+            config = input_config.get(model_key, {}).get(feature, (0.0, 100.0, 10.0))
+            with (col1a if i % 2 == 0 else col1b):
+                val = synced_input(feature, *config)
+                inputs[feature] = val
 with st.expander("⚙️ Categorical Options", expanded=True):
     col2a, col2b = st.columns(2)
     with col2a:
