@@ -107,7 +107,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 # Format: {model: {feature: (min, max, default)}}
-input_config = {
+input_ranges = {
     'HD': {'Bore': (0.5, 6.5, 3.0), 'Stroke': (1.0, 130.0, 20.0), 'RPC': (1.0, 130.0, 20.0), 'Rod': (0.0, 4.0, 1.5)},
     'HDE': {'Bore': (1.0, 6.5, 3.0), 'Stroke': (1.0, 75.0, 20.0), 'RPC': (5.0, 90.0, 20.0), 'Rod': (0.0, 4.0, 1.5)},
     'HDI': {'Bore': (0.5, 5.0, 3.0), 'Stroke': (0.0, 65.0, 15.0), 'RPC': (0.0, 80.0, 20.0), 'Rod': (0.0, 4.0, 1.5)},
@@ -120,6 +120,7 @@ input_config = {
     'M': {'Bore': (0.0, 6.5, 2.5), 'Stroke': (0.5, 100.0, 15.0), 'RPC': (2.0, 110.0, 21.0), 'Rod': (0.0, 2.5, 1.5)},
     'N': {'Bore': (0.0, 3.0, 2.0), 'Stroke': (2.5, 45.0, 11.0), 'RPC': (7.0, 50.0, 20.0), 'Rod': (0.0, 2.5, 1.0)}
 }
+default_range = {'Bore': (0.0, 10.0, 2.0), 'Stroke': (0.0, 300.0, 50.0), 'RPC': (0.0, 300.0, 20.0)}
 def synced_input(label, min_val, max_val, default):
     col_slider, col_input = st.columns([2, 1])
     with col_slider:
@@ -131,13 +132,19 @@ def synced_input(label, min_val, max_val, default):
 col1, col2 = st.columns(2)
 inputs = {}
 with st.expander("🔢 Numerical Inputs", expanded=True):
-    col1a, col1b = st.columns(2)
-    for i, feature in enumerate(numerical_features):
-        if feature in required_features:
-            config = input_config.get(model_key, {}).get(feature, (0.0, 100.0, 10.0))
-            with (col1a if i % 2 == 0 else col1b):
-                val = synced_input(feature, *config)
-                inputs[feature] = val
+  col1a, col1b = st.columns(2)
+   # Get model-specific input range or fallback
+    ranges = input_ranges.get(model_key, default_range)
+    bore_min, bore_max, bore_default = ranges['Bore']
+    stroke_min, stroke_max, stroke_default = ranges['Stroke']
+    rpc_min, rpc_max, rpc_default = ranges['RPC']
+    with col1a:
+        bore = synced_input("Bore", bore_min, bore_max, bore_default)
+        stroke = synced_input("Stroke", stroke_min, stroke_max, stroke_default)
+    with col1b:
+        rpc = synced_input("RPC", rpc_min, rpc_max, rpc_default)
+        rod = synced_input("Rod", 0.0, bore, min(5.0, bore))
+
 with st.expander("⚙️ Categorical Options", expanded=True):
     col2a, col2b = st.columns(2)
     with col2a:
