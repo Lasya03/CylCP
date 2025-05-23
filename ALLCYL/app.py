@@ -32,7 +32,7 @@ st.markdown("""
 </div>
 <div style="overflow:hidden; white-space:nowrap; box-sizing:border-box;">
   <div style="display:inline-block; padding-left:100%; animation: scroll-left 10s linear infinite; color:red; font-weight:bold;">
-    **All the numerical inputs are in inches**
+    **All numerical features units are in inches**
   </div>
 </div>
 <style>
