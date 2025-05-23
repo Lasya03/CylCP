@@ -56,6 +56,16 @@ st.markdown(
 # Sidebar widgets
 st.sidebar.title("Model Selection")
 model_key = st.sidebar.selectbox("Select Model Type", list(model_features.keys()))
+required_features = model_features.get(model_key, [])
+optional_features = [f for f in yesno_features if f not in required_features]
+
+st.sidebar.markdown(f"**Model Selected:** {model_key}")
+if optional_features:
+    st.sidebar.markdown("**Note:** Optional features for this model:")
+    for feat in optional_features:
+        st.sidebar.markdown(f"- {feat}")
+else:
+    st.sidebar.markdown("*All yes/no features are required for this model.*")
 
 model = load_model(model_key)
 if model is None:
