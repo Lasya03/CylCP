@@ -21,15 +21,6 @@ model_features = {
     'M': ['Bore','Stroke','RPC','Rod','R bearing','B bearing','Block','Val A'],
     'N': ['Bore','Stroke','RPC','Rod','R bearing','B bearing','Block','Val A'],
 }
-st.markdown(
-    """
-    <div style="text-align: center; margin-top: 0px; margin-bottom: 30px;">
-        <img src="https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/loading.gif" 
-             width="200" alt="Logo">
-    </div>
-    """,
-    unsafe_allow_html=True
-)
 # Styling
 st.markdown(
     """
