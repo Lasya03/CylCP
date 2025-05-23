@@ -113,7 +113,6 @@ input_ranges = {
     'N': {'Bore': (0.0, 3.0, 2.0), 'Stroke': (2.5, 45.0, 11.0), 'RPC': (7.0, 50.0, 20.0), 'Rod': (0.0, 2.5, 1.0)}
 }
 default_range = {'Bore': (0.0, 10.0, 2.0), 'Stroke': (0.0, 300.0, 50.0), 'RPC': (0.0, 300.0, 20.0)}
-
 # Synced input function
 def synced_input(label, min_val, max_val, default):
     col_slider, col_input = st.columns([2, 1])
@@ -126,6 +125,7 @@ def synced_input(label, min_val, max_val, default):
 # Numerical input section
 st.markdown("## Input Parameters")
 with st.expander("🔢 Numerical Inputs", expanded=True):
+    inputs = {}
     ranges = input_ranges.get(model_key, default_range)
     bore_min, bore_max, bore_default = ranges['Bore']
     stroke_min, stroke_max, stroke_default = ranges['Stroke']
