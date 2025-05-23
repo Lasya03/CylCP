@@ -30,22 +30,27 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-<div style="overflow:hidden; white-space:nowrap; box-sizing:border-box;">
-  <div style="display:inline-block; padding-left:100%; animation: scroll-left 10s linear infinite; color:red; font-weight:bold;">
-    All the numerical inputs are in inches
-  </div>
-</div>
-
-<style>
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-</style>
+# Styling
+st.markdown(
+    """
+    <div style="text-align: center; margin-top: 0px; margin-bottom: 30px;">
+        <img src="https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/loading.gif" 
+             width="200" alt="Logo">
+    </div>
+    <div style="overflow:hidden; white-space:nowrap; box-sizing:border-box;">
+      <div style="display:inline-block; padding-left:100%; animation: scroll-left 10s linear infinite; color:red; font-weight:bold;">
+        All the numerical inputs are in inches
+      </div>
+    </div>
+    <style>
+    @keyframes scroll-left {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 numerical_features = ['Bore','Stroke','RPC','Rod']
 yesno_features = ['R bearing','B bearing','Block','Val A','Val B']
 def load_model(model_key):
