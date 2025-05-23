@@ -147,10 +147,10 @@ with st.expander("⚙️ Categorical Options", expanded=True):
         block = st.radio("Block", ["No", "Yes"])
         val_a = st.radio("Val A", ["No", "Yes"])
 # Add inputs to dictionary
-inputs['Bore'] = bore
-inputs['Stroke'] = stroke
-inputs['RPC'] = rpc
-inputs['Rod'] = rod
+inputs['Bore'] = Bore
+inputs['Stroke'] = Stroke
+inputs['RPC'] = RPC
+inputs['Rod'] = Rod
 inputs['R bearing'] = 1 if r_bearing == 'Yes' else 0
 inputs['B bearing'] = 1 if b_bearing == 'Yes' else 0
 inputs['Val A'] = 1 if val_a == 'Yes' else 0
