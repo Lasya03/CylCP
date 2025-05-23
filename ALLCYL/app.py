@@ -30,10 +30,22 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-<marquee behavior="scroll" direction="left" scrollamount="4" style="color:red; font-weight:bold;">
-  All the numerical inputs are in inches
-</marquee>
+<div style="overflow:hidden; white-space:nowrap; box-sizing:border-box;">
+  <div style="display:inline-block; padding-left:100%; animation: scroll-left 10s linear infinite; color:red; font-weight:bold;">
+    All the numerical inputs are in inches
+  </div>
+</div>
 
+<style>
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+</style>
 numerical_features = ['Bore','Stroke','RPC','Rod']
 yesno_features = ['R bearing','B bearing','Block','Val A','Val B']
 def load_model(model_key):
