@@ -1,12 +1,14 @@
-import streamlit as st
+import streamlit as st 
 import pickle
 import os
 import numpy as np
+
 st.set_page_config(
     page_title="Cylinder Cost Prediction-Columbus",
     layout="centered",
     initial_sidebar_state="expanded",
 )
+
 # Feature configuration per model
 model_features = {
     'HD': ['Bore','Stroke','RPC','Rod','R bearing','B bearing','Block','Val A'],
@@ -21,29 +23,29 @@ model_features = {
     'M': ['Bore','Stroke','RPC','Rod','R bearing','B bearing','Block','Val A'],
     'N': ['Bore','Stroke','RPC','Rod','R bearing','B bearing','Block','Val A'],
 }
+
 # Styling
-st.markdown(
-    """
-    <div style="text-align: center; margin-top: 0px; margin-bottom: 30px;">
-        <img src="https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/loading.gif" 
-             width="200" alt="Logo">
-    </div>
-    <div style="overflow:hidden; white-space:nowrap; box-sizing:border-box;">
-      <div style="display:inline-block; padding-left:100%; animation: scroll-left 10s linear infinite; color:red; font-weight:bold;">
-        **All the numerical inputs are in inches**
-      </div>
-    </div>
-    <style>
-    @keyframes scroll-left {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-100%); }
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+st.markdown("""
+<div style="text-align: center; margin-top: 0px; margin-bottom: 30px;">
+    <img src="https://raw.githubusercontent.com/Lasya03/CylCP/main/ALLCYL/loading.gif" 
+         width="200" alt="Logo">
+</div>
+<div style="overflow:hidden; white-space:nowrap; box-sizing:border-box;">
+  <div style="display:inline-block; padding-left:100%; animation: scroll-left 10s linear infinite; color:red; font-weight:bold;">
+    **All the numerical inputs are in inches**
+  </div>
+</div>
+<style>
+@keyframes scroll-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+</style>
+""", unsafe_allow_html=True)
+
 numerical_features = ['Bore','Stroke','RPC','Rod']
 yesno_features = ['R bearing','B bearing','Block','Val A','Val B']
+
 def load_model(model_key):
     filename = os.path.join(os.path.dirname(__file__), f"{model_key}_model.pkl")
     if os.path.exists(filename):
@@ -52,18 +54,17 @@ def load_model(model_key):
     else:
         st.error(f"Model file {filename} not found!")
         return None
-st.markdown(
-    """
-    <style>
-    /* Target selectbox inside the sidebar */
-    section[data-testid="stSidebar"] .stSelectbox > div {
-        border: 2px solid black !important;  /* Dark outline */
-        border-radius: 5px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
+# Sidebar styling
+st.markdown("""
+<style>
+section[data-testid="stSidebar"] .stSelectbox > div {
+    border: 2px solid black !important;
+    border-radius: 5px;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # Sidebar widgets
 st.sidebar.title("Model Selection")
 model_key = st.sidebar.selectbox("Select Model Type", list(model_features.keys()))
@@ -81,32 +82,23 @@ else:
 model = load_model(model_key)
 if model is None:
     st.stop()
-st.markdown(
-    "<h1 style='white-space: nowrap;'>Cylinder Cost Prediction - Columbus</h1>",
-    unsafe_allow_html=True
-)
-st.markdown("""
-    <style>
-    /* Target only number_input text boxes */
-    .stNumberInput input {
-        border: 1.5px solid #222 !important;
-        border-radius: 8px !important;
-        padding: 8px !important;
-        background-color: #fff !important;
-        color: #000 !important;
-    }
 
-    /* Optional: dark theme version (uncomment if needed) */
-    /*
-    .stNumberInput input {
-        background-color: #1e1e1e !important;
-        color: #f0f0f0 !important;
-        border: 2px solid #555 !important;
-    }
-    */
-    </style>
+st.markdown("<h1 style='white-space: nowrap;'>Cylinder Cost Prediction - Columbus</h1>", unsafe_allow_html=True)
+
+# Additional styling for inputs
+st.markdown("""
+<style>
+.stNumberInput input {
+    border: 1.5px solid #222 !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    background-color: #fff !important;
+    color: #000 !important;
+}
+</style>
 """, unsafe_allow_html=True)
-# Format: {model: {feature: (min, max, default)}}
+
+# Define input ranges
 input_ranges = {
     'HD': {'Bore': (0.5, 6.5, 3.0), 'Stroke': (1.0, 130.0, 20.0), 'RPC': (1.0, 130.0, 20.0), 'Rod': (0.0, 4.0, 1.5)},
     'HDE': {'Bore': (1.0, 6.5, 3.0), 'Stroke': (1.0, 75.0, 20.0), 'RPC': (5.0, 90.0, 20.0), 'Rod': (0.0, 4.0, 1.5)},
@@ -121,6 +113,8 @@ input_ranges = {
     'N': {'Bore': (0.0, 3.0, 2.0), 'Stroke': (2.5, 45.0, 11.0), 'RPC': (7.0, 50.0, 20.0), 'Rod': (0.0, 2.5, 1.0)}
 }
 default_range = {'Bore': (0.0, 10.0, 2.0), 'Stroke': (0.0, 300.0, 50.0), 'RPC': (0.0, 300.0, 20.0)}
+
+# Synced input function
 def synced_input(label, min_val, max_val, default):
     col_slider, col_input = st.columns([2, 1])
     with col_slider:
@@ -129,22 +123,23 @@ def synced_input(label, min_val, max_val, default):
         input_val = st.number_input(f"{label} value", min_value=float(min_val), max_value=float(max_val), value=slider_val, step=0.001, format="%.3f", key=label + "input")
     return input_val if input_val != slider_val else slider_val
 
-col1, col2 = st.columns(2)
-inputs = {}
+# Numerical input section
+st.markdown("## Input Parameters")
 with st.expander("🔢 Numerical Inputs", expanded=True):
-  col1a, col1b = st.columns(2)
-   # Get model-specific input range or fallback
-ranges = input_ranges.get(model_key, default_range)
-bore_min, bore_max, bore_default = ranges['Bore']
-stroke_min, stroke_max, stroke_default = ranges['Stroke']
-rpc_min, rpc_max, rpc_default = ranges['RPC']
-    with col1a:
+    ranges = input_ranges.get(model_key, default_range)
+    bore_min, bore_max, bore_default = ranges['Bore']
+    stroke_min, stroke_max, stroke_default = ranges['Stroke']
+    rpc_min, rpc_max, rpc_default = ranges['RPC']
+    rod_min, rod_max, rod_default = ranges.get('Rod', (0.0, 2.5, 1.0))
+
+    col1, col2 = st.columns(2)
+    with col1:
         bore = synced_input("Bore", bore_min, bore_max, bore_default)
         stroke = synced_input("Stroke", stroke_min, stroke_max, stroke_default)
-    with col1b:
+    with col2:
         rpc = synced_input("RPC", rpc_min, rpc_max, rpc_default)
-        rod = synced_input("Rod", 0.0, bore, min(5.0, bore))
-
+        rod = synced_input("Rod", rod_min, rod_max, rod_default)
+# You can now use `bore`, `stroke`, `rpc`, and `rod` as inputs for model prediction logic.
 with st.expander("⚙️ Categorical Options", expanded=True):
     col2a, col2b = st.columns(2)
     with col2a:
