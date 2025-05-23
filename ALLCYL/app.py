@@ -61,7 +61,7 @@ optional_features = [f for f in yesno_features if f not in required_features]
 
 st.sidebar.markdown(f"**Model Selected:** {model_key}")
 if optional_features:
-    st.sidebar.markdown(f"**Note:** While training {model_key} data , it is observed that the following features don't have any importance,so the predicted cost doesn't include their cost:")
+    st.sidebar.markdown(f"**Note:** While training the {model_key} model, it was observed that the following features had minimal impact on prediction. As a result, their costs are not included in the predicted value. However, you may choose to manually add their respective costs if needed.")
     for feat in optional_features:
         st.sidebar.markdown(f"- {feat}")
 else:
