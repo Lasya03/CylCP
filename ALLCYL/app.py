@@ -126,19 +126,14 @@ def synced_input(label, min_val, max_val, default):
 st.markdown("## Input Parameters")
 with st.expander("🔢 Numerical Inputs", expanded=True):
     inputs = {}
-    ranges = input_ranges.get(model_key, default_range)
-    bore_min, bore_max, bore_default = ranges['Bore']
-    stroke_min, stroke_max, stroke_default = ranges['Stroke']
-    rpc_min, rpc_max, rpc_default = ranges['RPC']
-    rod_min, rod_max, rod_default = ranges.get('Rod', (0.0, 2.5, 1.0))
-
-    col1, col2 = st.columns(2)
-    with col1:
-        bore = synced_input("Bore", bore_min, bore_max, bore_default)
-        stroke = synced_input("Stroke", stroke_min, stroke_max, stroke_default)
-    with col2:
-        rpc = synced_input("RPC", rpc_min, rpc_max, rpc_default)
-        rod = synced_input("Rod", rod_min, rod_max, rod_default)
+ranges = input_ranges.get(model_key, default_range)
+col1a, col1b = st.columns(2)
+    with col1a:
+        Bore = synced_input('Bore', *ranges['Bore'])
+        Stroke = synced_input('Stroke', *ranges['Stroke'])
+    with col1b:
+        RPC = synced_input('RPC', *ranges['RPC'])
+        Rod = synced_input('Rod', *ranges['Rod'])
 # You can now use `bore`, `stroke`, `rpc`, and `rod` as inputs for model prediction logic.
 with st.expander("⚙️ Categorical Options", expanded=True):
     col2a, col2b = st.columns(2)
