@@ -133,7 +133,17 @@ with st.expander("🔢 Numerical Inputs", expanded=True):
         Stroke = synced_input('Stroke', *ranges['Stroke'])
     with col1b:
         RPC = synced_input('RPC', *ranges['RPC'])
-        Rod = synced_input('Rod', *ranges['Rod'])
+        # Adjust Rod range so its max is always less than Bore
+        rod_min, rod_max_default, rod_default = ranges['Rod']
+        adjusted_rod_max = min(rod_max_default, Bore - 1e-2)  # A tiny buffer to avoid equality
+        adjusted_rod_default = min(rod_default, adjusted_rod_max)
+
+        # If Bore is very small and adjusted max is below min, clamp values
+        if adjusted_rod_max < rod_min:
+            adjusted_rod_max = rod_min + 1e-2
+            adjusted_rod_default = rod_min
+
+        Rod = synced_input('Rod', rod_min, adjusted_rod_max, adjusted_rod_default)
 # You can now use `bore`, `stroke`, `rpc`, and `rod` as inputs for model prediction logic.
 with st.expander("⚙️ Categorical Options", expanded=True):
     col2a, col2b = st.columns(2)
