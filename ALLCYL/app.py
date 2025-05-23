@@ -130,7 +130,6 @@ def synced_input(label, min_val, max_val, default):
 
 col1, col2 = st.columns(2)
 inputs = {}
-inputs = {}
 with st.expander("🔢 Numerical Inputs", expanded=True):
     col1a, col1b = st.columns(2)
     for i, feature in enumerate(numerical_features):
