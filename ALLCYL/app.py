@@ -126,8 +126,8 @@ def synced_input(label, min_val, max_val, default):
 st.markdown("## Input Parameters")
 with st.expander("🔢 Numerical Inputs", expanded=True):
     inputs = {}
-ranges = input_ranges.get(model_key, default_range)
-col1a, col1b = st.columns(2)
+    ranges = input_ranges.get(model_key, default_range)
+    col1a, col1b = st.columns(2)
     with col1a:
         Bore = synced_input('Bore', *ranges['Bore'])
         Stroke = synced_input('Stroke', *ranges['Stroke'])
