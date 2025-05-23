@@ -30,6 +30,9 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+<marquee behavior="scroll" direction="left" scrollamount="4" style="color:red; font-weight:bold;">
+  All the numerical inputs are in inches
+</marquee>
 
 numerical_features = ['Bore','Stroke','RPC','Rod']
 yesno_features = ['R bearing','B bearing','Block','Val A','Val B']
