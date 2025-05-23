@@ -134,10 +134,10 @@ inputs = {}
 with st.expander("🔢 Numerical Inputs", expanded=True):
   col1a, col1b = st.columns(2)
    # Get model-specific input range or fallback
-    ranges = input_ranges.get(model_key, default_range)
-    bore_min, bore_max, bore_default = ranges['Bore']
-    stroke_min, stroke_max, stroke_default = ranges['Stroke']
-    rpc_min, rpc_max, rpc_default = ranges['RPC']
+ranges = input_ranges.get(model_key, default_range)
+bore_min, bore_max, bore_default = ranges['Bore']
+stroke_min, stroke_max, stroke_default = ranges['Stroke']
+rpc_min, rpc_max, rpc_default = ranges['RPC']
     with col1a:
         bore = synced_input("Bore", bore_min, bore_max, bore_default)
         stroke = synced_input("Stroke", stroke_min, stroke_max, stroke_default)
